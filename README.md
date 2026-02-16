@@ -1,105 +1,88 @@
-Automate Builder
-
-Automate Builder est un projet Kotlin permettant de créer et manipuler des automates finis à partir de fichiers texte.
-Il permet également de visualiser le graphe de l’automate au format PNG en utilisant Graphviz.
+Txt2Automate - User Guide
 
 ---
 
-Fonctionnalités
+Description
 
-- Lire un fichier .txt décrivant un automate (états, alphabet, transitions, état initial et états finaux)
-- Construire dynamiquement l’automate en mémoire
-- Vérifier si un mot appartient au langage de l’automate (validation)
-- Détecter si l’automate est connexe
-- Générer un graphe de l’automate au format .dot et .png pour visualisation
-- Gérer un état "puits" pour les transitions non définies
+Txt2Automate is a Kotlin project that allows you to create and manipulate finite automata from text files.
+It also lets you visualize the automaton graph as a PNG using Graphviz.
+The project works on Linux and Windows only.
 
 ---
 
-Structure du projet
+Text File Format
 
-src/
-├─ automate/                # Fonctions utilitaires
-│   └─ automateBuilder.kt
-├─ automate/model/          # Modèles d'automates et états
-│   ├─ Automate.kt
-│   ├─ Etat.kt
-│   └─ Puit.kt
-├─ automate/data/txt/       # Fichiers texte décrivant les automates
-├─ automate/data/dot/       # Fichiers dot générés
-└─ automate/data/png/       # Images PNG des automates
+Each automaton is described in a .txt file with the following structure:
 
----
+init e0
+finals e0
 
-Format du fichier texte
+stateA char char stateB
 
-Chaque automate est décrit dans un fichier .txt. Exemple :
+e0 0 3 6 9 e0
+e0 1 4 7 e1
 
-init q0
-finals q2 q3
-alphabet letters digits a b
-q0 q1 a b
-q1 q2 0
-q2 q3 1
+stateA char char stateB
 
-- init : état initial
-- finals : états finaux
-- alphabet : symboles autorisés (letters, digits ou caractères précis)
-- Les autres lignes définissent les transitions (état_source état_destination symbole(s))
+alphabet digits
+
+Keyword explanation:
+
+- init: defines the initial state of the automaton (here e0)
+- finals: lists the final states (here e0)
+- alphabet: defines the allowed alphabet (letters for letters, digits for numbers, or specific characters)
+- Other lines: define transitions
+  - first column: source state
+  - middle columns: values or symbols for the transition
+  - last column: destination state
+- A "sink" state is automatically used for undefined transitions, depending on your usage
 
 ---
 
-Utilisation
+Installation and Running
 
-1. Prérequis : Kotlin et Graphviz installés.
-   - Pour Graphviz, ajoute le chemin de dot à ton PATH ou modifie le chemin dans Automate.kt.
-2. Place ton fichier .txt dans src/automate/data/txt/.
-3. Compile et lance le projet :
+Prerequisites:
 
-kotlinc src/automate/*.kt -include-runtime -d AutomateBuilder.jar
-java -jar AutomateBuilder.jar
+- Kotlin (latest version)
+- Java (latest version)
+- Graphviz (latest version)
+- The project should be located in the Txt2Automate directory
 
-4. Le programme propose un menu pour :
-   - Sélectionner un automate
-   - Entrer un mot pour validation
-   - Générer et ouvrir le graphe de l’automate
+Linux:
 
----
+1. Open a terminal in the project folder
+2. Compile:
 
-Exemple d'utilisation
+   kotlinc src -include-runtime -d automate.jar
 
-- Menu principal :
+3. Run:
 
---------------- Menu des Automates -------------------------
-0. exempleAutomate
-Stop. Arrêt de l’application
--> 0
+   java -jar automate.jar
 
-- Validation d’un mot :
+Windows:
 
-Alphabet autorisé : [ a, b, 0, 1, ... ]
-Veuillez écrire votre exempleAutomate : a0b
-Lecture du caractère 'a' à la position 1 : q0 -> q1
-Lecture du caractère '0' à la position 2 : q1 -> q2
-OK : mot accepté
-
-- Génération du graphe :
-
-Le fichier PNG est ouvert automatiquement avec l’image de l’automate
-
-> Exemple de graphe :
-> (mettre ici ./automate/data/png/exempleAutomate.png si disponible)
+- Compile and run using the terminal/cmd, similar to Linux
+- Make sure Kotlin, Java, and Graphviz are installed and added to the PATH
 
 ---
 
-Remarques
+Usage
 
-- L’automate doit être connexe pour être accepté
-- Les états non définis redirigent automatiquement vers un puits
-- Les fichiers générés .dot et .png sont créés dans src/automate/data/dot/ et src/automate/data/png/
+1. The program displays a menu with the list of automata available in src/automate/data/txt
+2. Choose an automaton
+3. Inside options:
+   - Enter a word for validation
+     - The program will return "OK" if the word is accepted or "KO" if not
+     - The sink state is automatically used if the word leads to an undefined state
+   - Print the graph
+     - The program generates a .dot file in src/automate/data/dot
+     - Graphviz automatically opens the corresponding PNG in src/automate/data/png
 
 ---
 
-Licence
+Notes
 
-Ce projet est open-source et libre d’utilisation
+- The automaton must be connected to be accepted
+- The .dot and .png files are generated automatically
+- This project only supports Linux and Windows
+- Graphs with transitions containing too many values may be hard to read in the PNG
