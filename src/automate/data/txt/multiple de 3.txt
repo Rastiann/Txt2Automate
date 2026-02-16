@@ -1,0 +1,14 @@
+init e0
+finals e0
+
+e0 0 3 6 9 e0
+e0 1 4 7 e1
+e0 2 5 8 e2
+e1 0 3 6 9 e1
+e1 1 4 7 e2
+e1 2 5 8 e0
+e2 0 3 6 9 e2
+e2 1 4 7 e0
+e2 2 5 8 e1
+
+alphabet digits

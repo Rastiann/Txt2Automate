@@ -1,0 +1,17 @@
+digraph {
+    rankdir=LR;
+    node [shape=circle, fontname="Helvetica"];
+    edge [fontname="Helvetica"];
+    label="Automate smiley"
+    e0;
+    e1;
+    e2;
+    e4 [shape=doublecircle];
+    e3;
+    e0 -> e1 [label=":"]
+    e0 -> e2 [label=";"]
+    e1 -> e4 [label="3"]
+    e1 -> e3 [label="-"]
+    e2 -> e3 [label="-, ="]
+    e3 -> e4 [label="(, )"]
+}

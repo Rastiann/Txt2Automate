@@ -1,0 +1,16 @@
+init e0
+finals m
+
+e0 0 1 h1
+e0 2 h2
+
+
+h2 0 1 2 3 h
+h1 digits h
+
+h : m1
+
+m1 0 1 2 3 4 5 m2
+m2 digits m
+
+alphabet digits :

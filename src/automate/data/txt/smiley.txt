@@ -1,0 +1,11 @@
+alphabet : ; 3 - = ( )
+init e0
+e0 : e1
+e0 ; e2
+e1 3 e4
+finals e4
+e1 - e3
+e2 - e3
+e2 = e3
+e3 ( e4
+e3 ) e4

@@ -1,0 +1,16 @@
+init e0
+finals e6
+
+alphabet letters digits _ . @ -
+
+e0 letters digits e1
+e1 letters digits e1
+e1 . _ - e2
+e2 letters digits e1
+e1 @ e3
+e3 letters e4
+e4 letters e4
+e4 . e5
+e5 letters e6
+e6 letters e6
+e6 - . e5

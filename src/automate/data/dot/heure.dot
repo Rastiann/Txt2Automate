@@ -1,0 +1,20 @@
+digraph {
+    rankdir=LR;
+    node [shape=circle, fontname="Helvetica"];
+    edge [fontname="Helvetica"];
+    label="Automate heure"
+    e0;
+    m [shape=doublecircle];
+    h1;
+    h2;
+    h;
+    m1;
+    m2;
+    e0 -> h1 [label="0, 1"]
+    e0 -> h2 [label="2"]
+    h1 -> h [label="0, 1, 2, 3, 4, 5, 6, 7, 8, 9"]
+    h2 -> h [label="0, 1, 2, 3"]
+    h -> m1 [label=":"]
+    m1 -> m2 [label="0, 1, 2, 3, 4, 5"]
+    m2 -> m [label="0, 1, 2, 3, 4, 5, 6, 7, 8, 9"]
+}
