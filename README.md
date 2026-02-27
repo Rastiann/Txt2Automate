@@ -14,6 +14,7 @@ Text File Format
 
 Each automaton is described in a .txt file with the following structure:
 
+```
 init e0
 finals e0
 
@@ -25,6 +26,7 @@ e0 1 4 7 e1
 stateA char char stateB
 
 alphabet digits
+```
 
 Keyword explanation:
 
