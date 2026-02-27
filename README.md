@@ -1,8 +1,8 @@
-Txt2Automate - User Guide
+# Txt2Automate - User Guide
 
 ---
 
-Description
+## Description
 
 Txt2Automate is a Kotlin project that allows you to create and manipulate finite automata from text files.
 It also lets you visualize the automaton graph as a PNG using Graphviz.
@@ -10,7 +10,7 @@ The project works on Linux and Windows only.
 
 ---
 
-Text File Format
+## Text File Format
 
 Each automaton is described in a .txt file with the following structure:
 
@@ -41,7 +41,7 @@ Keyword explanation:
 
 ---
 
-Installation and Running
+## Installation and Running
 
 Prerequisites:
 
@@ -68,7 +68,7 @@ Windows:
 
 ---
 
-Usage
+## Usage
 
 1. The program displays a menu with the list of automata available in src/automate/data/txt
 2. Choose an automaton
@@ -82,7 +82,7 @@ Usage
 
 ---
 
-Notes
+## Notes
 
 - The automaton must be connected to be accepted
 - The .dot and .png files are generated automatically
